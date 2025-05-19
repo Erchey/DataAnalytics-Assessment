@@ -84,7 +84,7 @@ In the final query, users are:
 - Computes the **inactivity period** in days using `DATEDIFF(CURRENT_DATE, last_transaction_date)`.
 - Filters to include only those plans **inactive for over 365 days**.
 - Formats the last transaction date using `DATE_FORMAT` for clarity as shown in the example.
-- Sorts results in descending order of inactivity.
+- Sorts results in descending order of inactivity to show most inactive users first.
 
 ---
 
@@ -112,3 +112,7 @@ In the final query, users are:
 - CLV is estimated using the formula:  
   **`(total_transactions / tenure_months) * 12 * avg_profit_per_transaction`**  
   This projects average yearly profit, assuming the customer continues at the same rate.
+
+## Challenges 
+
+- I wish the value of `status_id` was clearly stated. It could have helped in truly identifying active and non active users. I could only tell active users from just isolating `is_deleted` users and users that had `confirmed_amount > 0` and also `created_on` dates.
